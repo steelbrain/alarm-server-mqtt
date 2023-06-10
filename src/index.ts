@@ -25,7 +25,6 @@ async function main() {
       console.log('Alarm server client connected')
     }
     let contents = Buffer.alloc(0)
-    console.log('client connected')
     socket.on('end', () => {
       const cameraName = getCameraNameFromEvent(contents)
       if (config.debug) {
