@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "mqtt": "^4.3.7",
+    "sb-event-kit": "^3.1.0",
     "zod": "^3.21.4"
   },
   "keywords": [

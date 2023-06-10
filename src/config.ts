@@ -1,10 +1,14 @@
 import { z } from 'zod'
 import fs from 'node:fs/promises'
 
+export const ALARM_TIMEOUT_MS_DEFAULT = 5000
+
 const configSchema = z.object({
+  debug: z.boolean().optional(),
   mqttServerURI: z.string(),
   alarmServerPort: z.number(),
   alarmServerHost: z.string().optional(),
+  alarmTimeoutMs: z.number().min(2500).optional(),
 })
 
 export type Config = z.infer<typeof configSchema>
