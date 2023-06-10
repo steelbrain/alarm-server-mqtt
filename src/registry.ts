@@ -17,7 +17,7 @@ export default class Registry {
   onEventEnd(callback: (cameraName: string) => void): Disposable {
     return this.emitter.on('event-end', callback)
   }
-  processEvent(cameraName: string): void {
+  trigger(cameraName: string): void {
     if (!this.activeEvents.has(cameraName)) {
       this.emitter.emit('event-start', cameraName)
     }

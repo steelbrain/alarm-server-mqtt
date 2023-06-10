@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import fs from 'node:fs/promises'
 
+export const ALARM_EVENT_BUFFER_SIZE = 267
 export const ALARM_TIMEOUT_MS_DEFAULT = 5000
 
 const configSchema = z.object({

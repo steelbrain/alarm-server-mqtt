@@ -1,8 +1,9 @@
 import path from 'path'
 import net from 'net'
-import { ALARM_TIMEOUT_MS_DEFAULT, loadConfig } from './config'
+import { ALARM_EVENT_BUFFER_SIZE, ALARM_TIMEOUT_MS_DEFAULT, loadConfig } from './config'
 import Registry from './registry'
 import mqtt from 'mqtt'
+import { getCameraNameFromEvent } from './parser'
 
 async function main() {
   const configFilePath = path.join(process.cwd(), 'config.json')
@@ -20,14 +21,35 @@ async function main() {
 
   // Listening server
   const server = net.createServer(socket => {
+    if (config.debug) {
+      console.log('Alarm server client connected')
+    }
+    let contents = Buffer.alloc(0)
     console.log('client connected')
     socket.on('end', () => {
-      console.log('client disconnected')
+      const cameraName = getCameraNameFromEvent(contents)
+      if (config.debug) {
+        console.log(`Camera (${cameraName}) triggered`)
+      }
+      if (cameraName != null) {
+        registry.trigger(cameraName)
+      }
     })
     socket.on('data', data => {
-      console.log(data.toString('hex'))
+      if (contents.length >= ALARM_EVENT_BUFFER_SIZE) {
+        // No op
+        return
+      }
+      contents = Buffer.concat([contents, data.subarray(0, ALARM_EVENT_BUFFER_SIZE)])
     })
-    socket.end()
+
+    // Delayed socket end
+    setTimeout(() => {
+      socket.end()
+    }, 1000)
+    socket.on('error', () => {
+      // No op
+    })
   })
 
   server.listen(config.alarmServerPort, config.alarmServerHost)
