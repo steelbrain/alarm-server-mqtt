@@ -73,3 +73,6 @@ pids
 
 # typescript
 *.tsbuildinfo
+
+# Custom
+/config.json
