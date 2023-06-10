@@ -1,0 +1,4 @@
+Alarm Server to MQTT
+====================
+
+This repository contains the necessary code you need to host an Alarm server by yourself that works with EZVIZ cameras over the local network.

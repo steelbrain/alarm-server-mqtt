@@ -1,0 +1,75 @@
+# Ignore all dotfiles -- the allowed dotfiles must be explicitly enabled
+# and added with `git add -f x`
+.*
+
+# Built output
+/lib
+# Ignore Node.js node modules
+node_modules
+# Ignore macOS DS Store file
+.DS_Store
+# Ignore NPM lockfile because we use Yarn
+package-lock.json
+# Yarn lifecycle files -- We're using non-zero-installs config from
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Ignore files that commonly contain PII -- to avoid accidental committing
+# to the repository
+*.csv
+*.tsv
+*.json
+*.sql
+*.zip
+*.tar
+*.tgz
+*.gz
+*.txt
+*.xlsx
+*.ods
+*.pdf
+*.swp
+*.rar
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# dotenv environment variables file
+.env
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+.next
+
+# typescript
+*.tsbuildinfo

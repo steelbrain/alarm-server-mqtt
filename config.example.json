@@ -1,0 +1,5 @@
+{
+  "mqttServerURI": "mqtt://test.mosquitto.org",
+  "alarmServerPort": 4040,
+  "alarmServerHost": "0.0.0.0"
+}

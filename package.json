@@ -1,0 +1,34 @@
+{
+  "name": "alarm-server-mqtt",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepare": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steelbrain/alarm-server-mqtt.git"
+  },
+  "author": "steelbrain <hello@aneesiqbal.ai>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steelbrain/alarm-server-mqtt/issues"
+  },
+  "homepage": "https://github.com/steelbrain/alarm-server-mqtt#readme",
+  "devDependencies": {
+    "@types/node": "^20.2.6",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "mqtt": "^4.3.7",
+    "zod": "^3.21.4"
+  },
+  "keywords": [
+    "ezviz",
+    "cloud",
+    "mqtt",
+    "events"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "parser": "typescript",
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "bracketSameLine": false,
+  "trailingComma": "all",
+  "printWidth": 120,
+  "arrowParens": "avoid",
+  "proseWrap": "always",
+  "singleQuote": true,
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": [
+        "**/*.json",
+        "*.json"
+      ],
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}
