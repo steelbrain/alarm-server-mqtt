@@ -28,7 +28,7 @@ async function main() {
     socket.on('end', () => {
       const cameraName = getCameraNameFromEvent(contents)
       if (config.debug) {
-        console.log(`Camera (${cameraName}) triggered`)
+        console.log(`Camera (${cameraName}) triggered: ${contents.toString('hex')}`)
       }
       if (cameraName != null) {
         registry.trigger(cameraName)
