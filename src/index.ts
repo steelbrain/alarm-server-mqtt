@@ -22,7 +22,7 @@ async function main() {
   // Listening server
   const server = net.createServer(socket => {
     if (config.debug) {
-      console.log('Alarm server client connected')
+      console.log('Alarm server client connected from', socket.remoteAddress)
     }
     let contents = Buffer.alloc(0)
     socket.on('end', () => {
