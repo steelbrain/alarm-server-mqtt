@@ -24,6 +24,10 @@ $ npm install; npm run prepare # To compile the sources
 $ node . # or node lib
 ```
 
+## Deployment
+
+To run this server as a daemon or automatically start it on system start, you can make use of the [pm2](https://www.npmjs.com/package/pm2) process manager for Node.js
+
 ### License
 
 The contents of this repository are licensed under the terms of the MIT License. See the LICENSE file for more info.
